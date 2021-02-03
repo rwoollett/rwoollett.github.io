@@ -23,10 +23,9 @@
 <body>
     <div id="top-nav" >
 		<ul class="nav">            
-			<li><a class="navbar-brand" href="home.html">Personal Website</a></li>
-			<li><a href="#topic-header">Conditions</a></li>
-			<li><a id = "registerLink" class = "navbar-brand" href="cdtnloops.html#topic-header">Register</a></li>
-			<li><a id = "loginLink" class = "navbar-brand" href="cdtnloops.html#topic-header">Log in</a></li>
+			<li><a class="navbar-brand" href="index.html">Personal Website</a></li>
+			<li><a id = "registerLink" class = "navbar-brand" href="index.html">Register</a></li>
+			<li><a id = "loginLink" class = "navbar-brand" href="index.html">Log in</a></li>
 		</ul>
  		<!-- <form  method="get" action="http://www.google.com/search">
 				<div id="search-form" >
@@ -41,7 +40,7 @@
             <h3>Menu</h3>
             <ul class="menu">            
                 <li><a class="navbar-brand" href="index.html">React Web apps</a></li>
-                <li><a id="new-user-btn" href="#new-user" >New user</a></li>
+                <li><a id="new-user-btn" href="index.html" >New user</a></li>
             </ul>
         </div>
     
@@ -74,7 +73,7 @@
                              </label>
                         </td>
                         <td>
-                          <form action="#" th:action="@{/home}" method="post" accept-charset="utf-8">
+                          <form action="/index.html" th:action="@{/home}" method="post" accept-charset="utf-8">
                             <input type="hidden" name="user_id" th:value="${userItem.id}"/>
                             <button class="textualbutton" onClick="modal_open = true;" type="submit" name="editUser" th:value="${userStat.index}" th:text="${userItem.userName}">Joe Bloggs</button>
                           </form>
@@ -115,7 +114,7 @@
                              </label>
                         </td>
                         <!-- <td th:text="${{userItem.userName}}">Jane Doe</td> -->
-                        <td><a th:text="${{userItem.userName}}" href="index.html?userId=1" th:href="@{/home(userId=${userItem.id})}">Joe Bloggs</a></td>
+                        <td><a th:text="${{userItem.userName}}" href="index.html" th:href="@{/home(userId=${userItem.id})}">Joe Bloggs</a></td>
                         <td>
                           <table>
                             <tbody>
