@@ -160,7 +160,7 @@
                                     </select>
                                   </td>
                                   <td>
-                                    <button type="submit" name="addRole" th:text="#{user.role.add}">Add role</button>
+                                    <button type="button" name="addRole" th:text="#{user.role.add}">Add role</button>
                                   </td>
                                 </tr>
                                 <tr th:each="role,roleStat : *{selectRoles}">
@@ -168,7 +168,7 @@
                                   <td>
                                     <input hidden="true" type="text" th:field="*{selectRoles[__${roleStat.index}__].id}" th:errorclass="fieldError" /> 
                                     <input hidden="true" type="text" th:field="*{selectRoles[__${roleStat.index}__].name}" th:errorclass="fieldError" /> 
-                                    <button type="submit" name="removeRole" th:value="${roleStat.index}" th:text="#{user.role.remove}">Remove role</button>
+                                    <button type="button" name="removeRole" th:value="${roleStat.index}" th:text="#{user.role.remove}">Remove role</button>
                                   </td>
                                 </tr>
                               </tbody>
