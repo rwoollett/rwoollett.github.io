@@ -73,10 +73,11 @@
                              </label>
                         </td>
                         <td>
-                          <form action="/index.html" th:action="@{/home}" method="post" accept-charset="utf-8">
+                          <!-- <form action="/index.html" th:action="@{/home}" method="post" accept-charset="utf-8">
                             <input type="hidden" name="user_id" th:value="${userItem.id}"/>
                             <button class="textualbutton" onClick="modal_open = true;" type="submit" name="editUser" th:value="${userStat.index}" th:text="${userItem.userName}">Joe Bloggs</button>
-                          </form>
+                          </form> -->
+                          <td><a th:text="${{userItem.userName}}" href="index.html" th:href="@{/home(userId=${userItem.id})}">Jack Ryan</a></td>
                         </td>
                         <!-- <td th:text="${#strings.arrayJoin( -->
                              <!-- #messages.arrayMsg( -->
