@@ -11,7 +11,7 @@
     -->
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title >Rodey Woollett</title>
+	<title >Rodney Woollett</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <link href="./css/normalize.css" type="text/css" media="all"  rel="stylesheet" />
@@ -27,12 +27,6 @@
 			<li><a id = "registerLink" class = "navbar-brand" href="index.html">Register</a></li>
 			<li><a id = "loginLink" class = "navbar-brand" href="index.html">Log in</a></li>
 		</ul>
- 		<!-- <form  method="get" action="http://www.google.com/search">
-				<div id="search-form" >
-					<input id="search-input" type="text" name="search-input" size="25" maxlength="255" value="web pages javascript" onfocus="search_focus()" onblur="search_blur()" />
-					<button type="submit">Submit</button>
-				</div>
-		</form> -->
  	</div>
 
     <div id="page-container" >
@@ -40,7 +34,7 @@
             <h3>Menu</h3>
             <ul class="menu">            
                 <li><a class="navbar-brand" href="index.html">React Web apps</a></li>
-                <li><a id="new-user-btn" href="index.html" >New user</a></li>
+                <li><a id="new-user-btn" onclick="return false;" href="index.html" >New user</a></li>
             </ul>
         </div>
     
@@ -72,21 +66,7 @@
                             <span class="checkmark"></span>
                              </label>
                         </td>
-                        <td>
-                          <!-- <form action="/index.html" th:action="@{/home}" method="post" accept-charset="utf-8">
-                            <input type="hidden" name="user_id" th:value="${userItem.id}"/>
-                            <button class="textualbutton" onClick="modal_open = true;" type="submit" name="editUser" th:value="${userStat.index}" th:text="${userItem.userName}">Joe Bloggs</button>
-                          </form> -->
-                          <td><a th:text="${{userItem.userName}}" href="index.html" th:href="@{/home(userId=${userItem.id})}">Jack Ryan</a></td>
-                        </td>
-                        <!-- <td th:text="${#strings.arrayJoin( -->
-                             <!-- #messages.arrayMsg( -->
-                               <!-- #strings.arrayPrepend(userItem.roles,'user.role.')), -->
-                             <!-- ', ')}">Role1 -->
-                        <!-- </td> -->
-                        <!-- <td th:each="r : *{roles}"> -->
-                            <!-- <span th:text="${r.name}">Rolc1</span> -->
-                        <!-- </td> -->
+                        <td><a th:text="${{userItem.userName}}" href="index.html" th:href="@{/home(userId=${userItem.id})}">Jack Ryan</a></td>
                         <td>
                           <table>
                             <tbody>
@@ -135,13 +115,7 @@
                 <div id="new-user" class="modal">
                   <div class="detailform modal-content">
                     <span class="close">&times;</span>
-                        <!-- <p th:text="${#strings.arrayJoin( -->
-                             <!-- #messages.arrayMsg( -->
-                               <!-- #strings.arrayPrepend(allRoles,'user.role.')), -->
-                             <!-- ', ')}">Role1 -->
-                        <!-- </p> -->
-                  <!-- <p th:text="${#strings.arrayJoin(#messages.arrayMsg(#strings.arrayPrepend(allRoles, 'user.role.')))}">Role1, Role2</p> -->
-                  <p th:text="${#strings.arrayJoin(
+                    <p th:text="${#strings.arrayJoin(
                                  #messages.arrayMsg(
                                    #strings.arrayPrepend(userRoles, 'user.role.')), ', ')}">Role1, Role2</p>
                   <h2 th:text="#{title.new}">Input Form</h2>
@@ -161,8 +135,6 @@
                               <span th:text="#{user.firstName}">First name of person</span>
                             </label>
                             <input type="text" th:field="*{firstName}" th:errorclass="fieldError" />
-        <!-- 		            <span class="error" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">...</span>
-         -->		          
                           </div>
                           <div class="form-field">
                             <label for="lastName">
@@ -176,14 +148,12 @@
                             <table>
                               <thead>
                                 <tr>
-                                  <!-- <th th:text="#{user.roles.head.rownum}">Role</th> -->
                                   <th th:text="#{user.roles.head.name}">Role</th>
                                   <th th:text="#{user.roles.head.action}">Action</th>
                                 </tr>
                               </thead>
                               <tbody>
                                 <tr th:unless="${#lists.isEmpty(chooseRoles)}">
-                                  <!-- <td th:text="#{user.roles.head.rownum}">1</td> -->
                                   <td>
                                     <select name="selectRole">
                                       <option th:each="type : ${chooseRoles}" th:value="${type.id}" th:text="${type.name}">Wireframe</option>
@@ -194,7 +164,6 @@
                                   </td>
                                 </tr>
                                 <tr th:each="role,roleStat : *{selectRoles}">
-                                  <!-- <td th:text="${roleStat.count}">1</td>  -->
                                   <td th:text="${role.name}">User role</td>
                                   <td>
                                     <input hidden="true" type="text" th:field="*{selectRoles[__${roleStat.index}__].id}" th:errorclass="fieldError" /> 
@@ -250,23 +219,20 @@
             </div>
         </div>
     	</div>
-    <div id="footer" data-th-fragment="copy">
+    <div id="footer">
         <p>&copy; 2021 Rodney Woollett</p>
       </div>
   
 	<div class="cover">
 		<div class="transbox"></div>
 	</div>
-    <div id="script" >
-		<script data-th-inline="javascript">
+  <div id="script" >
+		<script>
 			/* variable used by modal.js */
 			var modal_open = /*[[${modalOpen}]]*/ false;
 		</script>
-		<script data-th-inline="javascript" src="./js/modal.js" data-th-src="@{/js/modal.js}"></script>
+		<script src="./js/modal.js"></script>
 	</div>
 
-
-   <!-- <script src="scripts/jquery-3.3.1.js"></script>
-    <script src="scripts/site_script.js"></script> -->
 </body>
 </html>
