@@ -145,7 +145,7 @@
                                  #messages.arrayMsg(
                                    #strings.arrayPrepend(userRoles, 'user.role.')), ', ')}">Role1, Role2</p>
                   <h2 th:text="#{title.new}">Input Form</h2>
-                  <form action="#" th:action="@{/home}" th:object="${user}" method="post" accept-charset="utf-8">
+                  <form action="/index.html" th:action="@{/home}" th:object="${user}" method="post" accept-charset="utf-8">
                 
                     <fieldset>
                       
@@ -208,7 +208,7 @@
                       </div>	
                       <div class="submit">
                         <input th:unless="*{id} == null" hidden="true" type="text" th:field="*{id}" th:errorclass="fieldError" /> 
-                        <button type="submit" name="save" th:text="( (*{id} == null) ? #{user.create} : #{user.save} )">Save user</button>    
+                        <button type="submit" name="save" >Save user</button>    
                       </div>
                     
                     </fieldset>
