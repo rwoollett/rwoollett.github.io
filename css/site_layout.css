@@ -1,0 +1,525 @@
+﻿/*
+   Site Layout Style
+   Author: Rodney Woollett
+   Date:   12/12/2018
+
+   Filename:         site_layout.css
+   Supporting Files: site_styles.css
+
+*/
+/* Layout styles
+   Styled to cell phone first then desktops */
+/* ######################################################################## */
+
+/* Reset margins and padding. */
+* {
+    margin: 0px auto;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body, html {
+	height: 100%;
+}
+
+body {
+	max-width: 480px;
+	/* display: flex; */
+	/* flex-flow: column; */
+}
+
+
+/* Page Header */
+#page-header {
+    display: block;
+    overflow: hidden;
+}
+
+.cover {
+    margin: 0px;
+	position: fixed;
+	top:0;
+	bottom:0;
+	z-index: -4;
+	width:100%;
+}
+
+.cover .transbox {
+	background: url('../images/100_0274.JPG') no-repeat fixed;
+	background-size: cover;
+	height: 100%;
+	opacity: .2;
+	background-size: auto !important;
+}
+
+/* Top navigation - contains the title at start. */
+#top-nav {
+	max-width: 480px;
+	z-index: 2;
+	/* position: static; */
+	width:100%;
+	display: flex;
+	flex-wrap: wrap;
+
+}
+
+/* Layout of form in the top navigation bar */
+#top-nav > form {
+    margin: 0px;
+    overflow: hidden;
+	padding: 12px 16px;
+	z-index: 2;
+  }
+
+/* Style the top-nav links */
+#top-nav a {
+	padding: 16px 16px;
+	z-index: 2;
+}
+/* List items with no style to fit in layout*/
+#top-nav li {
+	list-style: none;
+	z-index: 2;
+	margin: 2px 1px 1px;
+}
+
+/* Horizontal navigation for top of page. */
+.nav {
+    display: flex;
+    flex: 1 1 auto; /* Size of items defined inside items */
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: center;
+}
+.nav > .navbar-header, .nav > .navbar-collapse {
+    border: 1px dashed gray;
+    flex: 1 1 auto; /* Size of items defined inside items */
+    padding: 2px;
+}
+
+
+/* The main content in the centre of page 
+   When the display is to narrow it changes the content style.
+*/
+/* The pages container */
+#page-container {
+	display: flex;
+	flex-flow: column;
+	flex: 1 1 auto;
+}
+
+#page-container > * {
+	padding: 10px 20px;
+}
+	
+/* #page-container #page-header { */
+	/* float: left; */
+	/* padding: 14px 16px; */
+    /* border-bottom: 3px solid teal; */
+	/* background-color: bisque; */
+/* } */
+
+/* #page-container #side-menu { */
+	/* max-width: 120px; */
+	/* flex: 1 1 100px; */
+	/* margin: 0px; */
+/* } */
+
+#page-container #main-container {
+	flex: 1 1 auto;
+}
+
+#page-container #footer {
+	max-width: 100%;
+	clear: left;
+}
+
+/* Side menu */
+#side-menu {
+	margin: 0px;
+	flex: 1 1 auto;
+	z-index: 1;
+    display: flex;
+	flex-flow: row;
+}
+
+#side-menu li {
+	z-index: 1;
+}
+
+.menu {
+    display: flex;
+    flex: 1 1 auto; /* Size of items defined inside items */
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+/* Main content container (Div) */
+#main-container {
+	margin: 0px auto;
+	display: flex;
+	flex-flow: column;
+}
+
+#main-container #page-content {
+	flex: 3 1;
+	flex-basis:	auto;
+}
+
+#main-container #right-side {
+	flex: 1 1;
+    flex-basis: 140px;
+}
+
+/* Search form layout */
+form > #search-form {
+	margin-right: 0.5em;
+}
+
+#search-form {
+    border:2px dotted black;
+    padding:0px;
+}
+
+#search-form input[id='search-input'] {
+	color: #808080;
+}
+
+
+/* Search form layout */
+#search_form {
+    border:2px dotted black;
+    padding:0px;
+    width:auto;
+}
+#search_form input[name='q'] {
+	color: #808080;
+}
+
+/* Section inside main container for content of the subject of page */
+/* Section Header */
+.section-header {
+    display: block;
+    height: 30px;
+    opacity: 1;
+}
+
+/* Horizontal navigation for content with in section header */
+.section-header #previous-topic {
+    float: left;
+    width: 20%;
+    text-align: left;
+}
+
+.section-header #topic-header {
+    float: left;
+    width: 50%;
+    text-align: center;
+}
+
+.section-header #next-topic {
+    float: right;
+    text-align: right;
+    width: 20%;
+}
+
+.samples {
+    width: 100%;
+}
+
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 3; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+form div.form-fields {
+  display: block;
+}
+
+form div.form-field {
+  display: block;
+}
+
+form div.form-field > label {
+  display: block;
+}
+
+form div.form-field > input, form div.form-field > select {
+  display: block;
+}
+
+form div.form-field > table {
+  display: block;
+}
+
+form div.form-field > table tr {
+  display: block;
+}
+
+form div.form-field > table thead {
+  display: none;
+}
+
+form div.form-field > table td, form div.form-field > table th {
+  display: block;
+  border-left: 1px hidden;
+}
+
+
+/* Footer to the page common to site */
+#footer {
+	display: block;
+	clear:both;
+	width: 100%;
+    max-height: 35px;
+    margin: 10px 0px 10px 0px;
+}
+
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+@media (min-width: 1281px) {
+
+	body {
+		max-width: 1700px;
+		min-width: 1281px;
+	}
+	#top-nav {
+		max-width: 1700px;
+		min-width: 1281px;
+	}
+	#page-container {
+		max-width: 1700px;
+		min-width: 1281px;
+		/* margin-top: 60px; */
+	}
+	.cover {
+		max-width: 1700px;
+		min-width: 1281px;
+	}
+	/* #top-nav { */
+		/* position: fixed; */
+	/* } */
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+@media (min-width: 1025px) and (max-width: 1280px) {
+
+	body {
+		max-width: 1280px;
+		min-width: 1025px;
+	}
+	#top-nav {
+		max-width: 1280px;
+		min-width: 1025px;
+	}
+	#page-container {
+		max-width: 1280px;
+		min-width: 1025px;
+		/* margin-top: 60px; */
+	}
+	.cover {
+		max-width: 1280px;
+		min-width: 1025px;
+	}
+	/* #top-nav { */
+		/* position: fixed; */
+	/* } */
+  
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+	body {
+		max-width: 1024px;
+		min-width: 768px;
+	}
+	#top-nav {
+		max-width: 1024px;
+		min-width: 768px;
+	}
+	#page-container {
+		max-width: 1024px;
+		min-width: 768px;
+	}
+	.cover {
+		max-width: 1024px;
+		min-width: 768px;
+	}
+  
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+
+	body {
+		max-width: 1024px;
+		min-width: 768px;
+	}
+	#top-nav {
+		max-width: 1024px;
+		min-width: 768px;
+	}
+	#page-container {
+		max-width: 1024px;
+		min-width: 768px;
+	}
+	.cover {
+		max-width: 1024px;
+		min-width: 768px;
+	}
+  
+}
+
+@media (min-width: 767px) {
+	/* flex layout for top level across screen */
+	#page-container {
+		display: flex;
+		flex-flow: row;
+		flex: 1 1 auto;
+	}
+	#side-menu {
+		display: block;
+	}
+	.menu {
+		display: block;
+	}
+	#main-container {
+		flex-flow: row;
+	}
+	
+	form div.form-fields {
+	  display: table;
+	}
+
+	form div.form-field {
+	  display: table-row;
+	}
+
+	form div.form-field > label {
+	  display: table-cell;
+	}
+
+	form div.form-field > input, form div.form-field > select {
+	  display: table-cell;
+	}
+
+	form div.form-field > table {
+	  display: table;
+	}
+
+	form div.form-field > table thead {
+	  display: table-row-group;
+	}
+
+	form div.form-field > table tr {
+	  display: table-row;
+	}
+
+	form div.form-field > table td, form div.form-field > table th {
+	  display: table-cell;
+      border-left: 1px dotted;
+	}
+
+
+}
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+	body {
+		max-width: 767px;
+		min-width: 481px;
+	}
+	#top-nav {
+		max-width: 767px;
+		min-width: 481px;
+	}
+	#page-container {
+		max-width: 767px;
+		min-width: 481px;
+	}
+	.cover {
+		max-width: 767px;
+		min-width: 481px;
+	}
+  
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+  flex column layout for top and lower levels down screen 
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+	body {
+		max-width: 480px;
+		min-width: 320px;
+	}
+	#top-nav {
+		max-width: 480px;
+		min-width: 320px;
+	}
+	#page-container {
+		max-width: 480px;
+		min-width: 320px;
+	}
+	.cover {
+		max-width: 480px;
+		min-width: 320px;
+	}
+  
+}
