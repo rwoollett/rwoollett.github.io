@@ -1,238 +1,80 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <!--
-       RAlpha website
-       Author: Rodney Woollett
-       Date:   14/11/2019
-
-       Filename:         home.html
-       Supporting files: Scripts folder and css folder
-    -->
-	<meta charset="UTF-8">
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title >Rodney Woollett</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Labs Home</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
 
-    <link href="./css/normalize.css" type="text/css" media="all"  rel="stylesheet" />
-    <link href="./css/site_layout.css" type="text/css" media="all"  rel="stylesheet" />
-    <link href="./css/site_style.css"  type="text/css" media="all"  rel="stylesheet" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script ></script>	
-</head>
-<body>
-    <div id="top-nav" >
-		<ul class="nav">            
-			<li><a class="navbar-brand" href="index.html">Personal Website</a></li>
-			<li><a id = "registerLink" class = "navbar-brand" href="index.html">Register</a></li>
-			<li><a id = "loginLink" class = "navbar-brand" href="index.html">Log in</a></li>
-		</ul>
- 	</div>
+    <div class="navbar-minimal">
+      <img src="images/logo.svg">
+    </div>
 
-    <div id="page-container" >
-        <div id="side-menu">
-            <h3>Menu</h3>
-            <ul class="menu">            
-                <li><a class="navbar-brand" href="index.html">React Web apps</a></li>
-                <li><a id="new-user-btn" onclick="return false;" href="index.html" >New user</a></li>
-            </ul>
+    <div class="banner">
+      <div class="container">
+        <h1>Laboratory of Computer Algorithms</h1>
+        <p>The Javascript/Typescript programming language is used to implement basic algorithms.</p>
+      </div>
+    </div>
+
+    <div class="container">
+      
+      <div class="home-nav">
+        <div class="card">
+          <div class="card-content">
+            <h3>Laboratory Collection</h3>
+            <p>Explore the laboratories of algorithms implemented with the JavaScript/Typescript computer programming language.</p>
+          </div>
         </div>
-    
-	    <div role="main" id="main-container">
-            <div id="page-content" class="section">
-                <div class="detaillist">
-                
-                  <h2>List of Users</h2>
-                  
-                  <table>
-                    <thead>
-                      <tr>
-                        <th>
-                          <label for="select-all" class="checkbox-container">&nbsp;
-                            <input id="select-all" type="checkbox">
-                            <span class="checkmark"></span>
-                            <span class="tooltiptext">Select all</span>
-                             </label>
-                        </th>
-                        <th >User</th>
-                        <th >Roles</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>
-                          <label for="checkboxG3" class="checkbox-container">&nbsp;
-                            <input id="checkboxG3" type="checkbox" checked="checked">
-                            <span class="checkmark"></span>
-                             </label>
-                        </td>
-                        <td><a th:text="${{userItem.userName}}" href="index.html" th:href="@{/home(userId=${userItem.id})}">Jack Ryan</a></td>
-                        <td>
-                          <table>
-                            <tbody>
-                              <tr th:each="row,rowStat : ${userItem.roles}">
-                                <!-- <td th:text="${rowStat.count}">1</td> -->
-                                <td th:text="${row.name}">User role</td>
-                              </tr>
-                              <!--/*-->
-                                <tr th:each="row,rowStat : ${userItem.roles}">
-                                <td th:text="${row.name}">Account role</td>
-                              </tr>
-                                <tr th:each="row,rowStat : ${userItem.roles}">
-                                <td th:text="${row.name}">Account role</td>
-                              </tr>
-                              <!--*/-->
-                            </tbody>
-                          </table>
-                        </td> 
-                      </tr>
-                      <!--/*-->
-                      <tr th:each="userItem,userStat : ${allUsers}">
-                        <td>
-                          <label for="checkboxG4" class="checkbox-container">&nbsp;
-                            <input id="checkboxG4" type="checkbox" checked="checked">
-                            <span class="checkmark"></span>
-                             </label>
-                        </td>
-                        <!-- <td th:text="${{userItem.userName}}">Jane Doe</td> -->
-                        <td><a th:text="${{userItem.userName}}" href="index.html" th:href="@{/home(userId=${userItem.id})}">Joe Bloggs</a></td>
-                        <td>
-                          <table>
-                            <tbody>
-                              <tr th:each="row,rowStat : ${userItem.roles}">
-                                <td th:text="${row.name}">User role</td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </td>
-                      </tr>
-                      <!--*/-->
-                    </tbody>
-                  </table>
-                  
-                </div>
-                
-                <div id="new-user" class="modal">
-                  <div class="detailform modal-content">
-                    <span class="close">&times;</span>
-                    <p th:text="${#strings.arrayJoin(
-                                 #messages.arrayMsg(
-                                   #strings.arrayPrepend(userRoles, 'user.role.')), ', ')}">Role1, Role2</p>
-                  <h2 th:text="#{title.new}">Input Form</h2>
-                  <form action="/index.html" th:action="@{/home}" th:object="${user}" method="post" accept-charset="utf-8">
-                
-                    <fieldset>
-                      
-                      <legend th:text="#{user.data}">User Data</legend>
-            
-                      <ul th:if="${#fields.hasErrors('*')}" class="errorlist">
-                        <li th:each="err : ${#fields.errors('*')}" th:text="${err}">Input is incorrect</li>
-                      </ul>
-            
-                      <div class="form-fields">
-                          <div class="form-field">
-                            <label for="firstName">
-                              <span th:text="#{user.firstName}">First name of person</span>
-                            </label>
-                            <input type="text" th:field="*{firstName}" th:errorclass="fieldError" />
-                          </div>
-                          <div class="form-field">
-                            <label for="lastName">
-                              <span th:text="#{user.lastName}">Surname</span>
-                            </label>
-                            <input type="text" th:field="*{lastName}" th:errorclass="fieldError" />
-                          </div>
-    
-                          <div class="form-field">
-                            <label th:text="#{user.roles}">Roles</label>
-                            <table>
-                              <thead>
-                                <tr>
-                                  <th th:text="#{user.roles.head.name}">Role</th>
-                                  <th th:text="#{user.roles.head.action}">Action</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr th:unless="${#lists.isEmpty(chooseRoles)}">
-                                  <td>
-                                    <select name="selectRole">
-                                      <option th:each="type : ${chooseRoles}" th:value="${type.id}" th:text="${type.name}">Wireframe</option>
-                                    </select>
-                                  </td>
-                                  <td>
-                                    <button type="button" name="addRole" th:text="#{user.role.add}">Add role</button>
-                                  </td>
-                                </tr>
-                                <tr th:each="role,roleStat : *{selectRoles}">
-                                  <td th:text="${role.name}">User role</td>
-                                  <td>
-                                    <input hidden="true" type="text" th:field="*{selectRoles[__${roleStat.index}__].id}" th:errorclass="fieldError" /> 
-                                    <input hidden="true" type="text" th:field="*{selectRoles[__${roleStat.index}__].name}" th:errorclass="fieldError" /> 
-                                    <button type="button" name="removeRole" th:value="${roleStat.index}" th:text="#{user.role.remove}">Remove role</button>
-                                  </td>
-                                </tr>
-                              </tbody>
-                            </table>
-                          </div>
-                      </div>	
-                      <div class="submit">
-                        <input th:unless="*{id} == null" hidden="true" type="text" th:field="*{id}" th:errorclass="fieldError" /> 
-                        <button type="button" name="save" >Save user</button>    
-                      </div>
-                    
-                    </fieldset>
-                      
-                  </form>
-                </div>
-                </div>
-            </div>
-            
-            <div id="right-side">
-                <h1>REVIEWS</h1>
-        
-                <p>&#9733;&#9733;&#9733;&#9733;</p>
-                <blockquote>
-                    <p>
-                        Review sample
-                        <br />
-                        &mdash; Reviewed on <time>Sep. 22, 2014</time> <cite>by MMASON</cite>.
-                    </p>
-                </blockquote>
-        
-                <p>&#9733;&#9733;</p>
-                <blockquote>
-                    <p>
-                        Nothing special. 
-                        <br />
-                        &mdash; Reviewed on <time>Sep. 1, 2014</time> <cite>by GLENDACHEF</cite>.
-                    </p>
-                </blockquote>
-        
-                <p>&#9733;&#9733;&#9733;&#9733;&#9733;</p>
-                <blockquote>
-                    <p>
-                        Great!
-                        <br />
-                        &mdash; Reviewed on <time>August 28, 2014</time> <cite>by BBABS</cite>.
-                    </p>
-                </blockquote>
-            </div>
+          <div class="card">
+          <div class="card-content">
+            <h3>Algorithm Topics</h3>
+            <p>Understand the computer algorithms used in the laboratories.</p>
+          </div>
         </div>
-    	</div>
-    <div id="footer">
-        <p>&copy; 2021 Rodney Woollett</p>
+      </div>
+
+      <div class="popular">
+        <h2>Populer Laboratories</h2>
+        <p>Select a laboratory and explore the algorithm with the program and input data.</p>
+        <div class="popular-labs">
+          <div class="card">
+            <div class="card-content">
+              <h3>Passing Cars</h3>
+              <p>Time complexity of algorithm is how fast it perform the algorithm. Fast solutions are O(n), slow solutions are O(n2) or greater.</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-content">
+              <h3>Tape Equlibrium</h3>
+              <p>Use a variable to add up and sum all values in an array.  Counting elements can be done for values in array m and kept in array of size n.</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-content">
+              <h3>Fibonacci Iteration</h3>
+              <p>Use iteration and fibonacci algorithm.</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-content">
+              <h3>Tape Equlibrium</h3>
+              <p>Use a variable to add up and sum all values in an array.  Counting elements can be done for values in array m and kept in array of size n.</p>
+            </div>
+          </div>
+        </div>
+  
       </div>
   
-	<div class="cover">
-		<div class="transbox"></div>
-	</div>
-  <div id="script" >
-		<script>
-			/* variable used by modal.js */
-			var modal_open = /*[[${modalOpen}]]*/ false;
-		</script>
-		<script src="./js/modal.js"></script>
-	</div>
+    </div>
 
-</body>
+    <div class="footer">
+      <div class="container">
+        <p>The Javascript/Typescript laboratories. Contact: Programming Laboratory.</p>
+      </div>
+    </div>
+
+  </body>
 </html>

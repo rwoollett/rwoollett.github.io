@@ -1,0 +1,45 @@
+@import 'normalize.css';
+
+/* Importing layouts */
+@import url('layouts/labshome.css');
+/* @import url('layouts/dashboard.css'); */
+/* @import url('layouts/saas.css'); */
+/* @import url('layouts/map.css'); */
+
+body {
+  margin: 0;
+  font-family: 'Nunito', sans-serif;
+  font-size: calc(8px + 3vw / 2);
+  font-weight: 300;
+}
+p {
+  font-weight: lighter;
+}
+h1,
+h2,
+h3 {
+  font-family: 'Nunito', sans-serif;
+  font-weight: bold;
+}
+h1 {
+  font-size: calc(12px + 3vw / 2);
+}
+h2 {
+  font-size: calc(10px + 3vw / 2);
+  /* margin-bottom: 20px; */
+}
+h3 {
+  font-size: calc(8px + 3vw / 2);
+}
+.navbar-minimal {
+  height: 50px;
+  background: white;
+  box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.navbar-minimal img {
+  width: 40px;
+  height: 40px;
+}
