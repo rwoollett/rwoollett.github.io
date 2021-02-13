@@ -1,15 +1,26 @@
 @import 'normalize.css';
 
 /* Importing layouts */
-@import url('layouts/labshome.css');
-/* @import url('layouts/dashboard.css'); */
-/* @import url('layouts/saas.css'); */
-/* @import url('layouts/map.css'); */
+/* Layouts are done in React component CSS modules (see layouts/labshome.scss)
+/* @import url('layouts/labshome.css'); */
+html {
+  font-size: 16px;
+}
+@media screen and (min-width: 320px) {
+  html {
+    font-size: calc(16px + 6 * ((100vw - 320px) / 680));
+  }
+}
+@media screen and (min-width: 1000px) {
+  html {
+    font-size: 22px;
+  }
+}
 
 body {
   margin: 0;
   font-family: 'Nunito', sans-serif;
-  font-size: calc(8px + 3vw / 2);
+  /* font-size: calc(8px + 3vw / 2); */
   font-weight: 300;
 }
 p {
@@ -26,20 +37,55 @@ h1 {
 }
 h2 {
   font-size: calc(10px + 3vw / 2);
-  /* margin-bottom: 20px; */
 }
 h3 {
   font-size: calc(8px + 3vw / 2);
 }
-.navbar-minimal {
-  height: 50px;
-  background: white;
-  box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.3);
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+
+input {
+  -webkit-appearance: none;
+  appearance: none;
 }
-.navbar-minimal img {
-  width: 40px;
-  height: 40px;
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+}
+
+input,
+textarea,
+select,
+button {
+  width: 150px;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+button,
+label,
+input,
+select,
+progress,
+meter {
+  display: block;
+  font-family: inherit;
+  font-size: 100%;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 5px;
+  height: 30px;
+}
+
+label {
+  margin-bottom: 5px;
+}
+
+button {
+  width: 60%;
+  margin: 0 auto;
 }
