@@ -1,0 +1,2 @@
+(self.webpackChunkfrontend=self.webpackChunkfrontend||[]).push([[813],{813:(e,t,a)=>{"use strict";a.r(t),a.d(t,{default:()=>s});var n=a(294),r=a(346),c=a(866);const s=function(e){var t=e.cards;return n.createElement("div",{className:r.Z["home-nav"]},t.map((function(e,t){return n.createElement(c.Z,{key:t,title:e.title,catchPhrase:e.catchPhrase})})))}}}]);
+//# sourceMappingURL=813.bundle.js.map
